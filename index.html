@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="SPEEDY_files/Transp (3)-2.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>POT</title>
+
+    <meta name="description" content="" />
+
+    <link rel="apple-touch-icon" sizes="180x180" href="SPEEDY_files/Transp (3)-2.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="180x180" href="SPEEDY_files/Transp (3)-2.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="SPEEDY_files/Transp (3)-2.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="SPEEDY_files/Transp (3)-2.png" />
+    <link rel="mask-icon" sizes="16x16" href="SPEEDY_files/Transp (3)-2.png" />
+    <link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap" rel="stylesheet">
+    <meta name="application-name" content="$Pot ON freaking SOL" />
+    <meta name="msapplication-TileImage" content="SPEEDY_files/144x144.png" />
+
+    <meta property="og:url" content="https://potonsol.com" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="$Pot ON freaking SOL" />
+    <meta property="og:description" content="" />
+    <meta property="og:image" content="SPEEDY_files/meta-image.png" />
+
+    <meta property="twitter:domain" content="potonsol.com" />
+    <meta property="twitter:url" content="https://potonsol.com" />
+    <meta name="twitter:title" content="$Pot ON freaking SOL" />
+    <meta name="twitter:description" content="." />
+    <meta name="twitter:image" content="SPEEDY_files/meta-image.png" />
+    <script src="https://cdn.jsdelivr.net/npm/@solana/web3.js@latest/lib/index.iife.js"></script>
+    <script src="https://unpkg.com/@jup-ag/core@1.2.0/dist/jupiterCore.min.js"></script>
+    <script type="module" crossorigin src="SPEEDY_files/index-DY_gm67g.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@solana/buffer-layout@4.0.0/lib/index.iife.min.js"></script>
+    <script src="https://unpkg.com/@jup-ag/core@1.2.0/dist/jupiterCore.min.js"></script>
+    <!-- Include Jupiter Terminal -->
+<script src="https://unpkg.com/@jup-ag/terminal@latest/dist/terminal.iife.min.js"></script>
+<script src="https://unpkg.com/@jup-ag/web@1.3.2/dist/index.iife.min.js"></script>
+<script src="dist/jupiter.js"></script>
+<script src="dist/swap.js"></script>
+
+    <script>
+      function buttonClicked() {
+        console.log('Button was clicked');
+        alert('Button was clicked');
+      }
+    </script>
+    <link rel="stylesheet" crossorigin href="SPEEDY_files/index-CX9KPcRS.css">
+
+    <!-- Add your custom styles here -->
+<style>
+
+
+
+/* Swap Interface Styles */
+.swap-interface-container {
+    margin: 50px auto;
+    max-width: 400px;
+    background-color: #F4E0C5; /* Matching the cream background */
+    border: 4px solid #000;
+    border-radius: 20px;
+    padding: 20px;
+    font-family: 'Luckiest Guy', cursive;
+    color: #000; /* Black text color */
+    transition: max-width 0.3s ease;
+}
+
+/* Swap Interface Header */
+.swap-interface-container h2 {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+.token-input {
+    margin-bottom: 20px;
+}
+
+.token-input label {
+    display: block;
+    margin-bottom: 10px;
+    font-size: 1.2rem;
+}
+
+.token-input .input-field {
+    display: flex;
+    align-items: center;
+    border: 2px solid #000;
+    border-radius: 10px;
+    padding: 10px;
+    background-color: #FFF; /* White input background */
+}
+
+.token-input img {
+    width: 30px;
+    height: 30px;
+    margin-right: 10px;
+}
+
+.token-input span {
+    margin-right: auto;
+    font-size: 1rem;
+}
+
+.token-input input {
+    width: 50%;
+    text-align: right;
+    border: none;
+    background-color: transparent;
+    font-size: 1rem;
+    outline: none;
+    color: #000;
+}
+
+.swap-arrow {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.swap-arrow button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.swap-arrow img {
+    width: 30px;
+    height: 30px;
+}
+
+.swap-button {
+    width: 100%;
+    background-color: #f9bd4f; /* Yellow button */
+    color: #000;
+    font-weight: bold;
+    padding: 15px;
+    border: 2px solid #000;
+    border-radius: 10px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    position: relative;
+    z-index: 1000;
+}
+
+.swap-button:hover {
+    background-color: #000;
+    color: #f9bd4f; /* Inverted colors on hover */
+}
+
+/* Responsive adjustments for mobile */
+@media (max-width: 500px) {
+    .swap-interface-container {
+        max-width: 90%;
+        padding: 15px;
+    }
+    .swap-interface-container h2 {
+        font-size: 1.5rem;
+    }
+    .token-input input {
+        font-size: 0.9rem;
+    }
+    .swap-button {
+        font-size: 1rem;
+        padding: 12px;
+    }
+}
+
+/* Adjustments for PC (wider screens) */
+@media (min-width: 768px) {
+    .swap-interface-container {
+        max-width: 600px; /* Make it wider on PC */
+        padding: 30px; /* Add more padding */
+    }
+    .swap-interface-container h2 {
+        font-size: 2.5rem; /* Larger header */
+    }
+    .token-input input {
+        font-size: 1.5rem; /* Larger input text */
+    }
+    .swap-button {
+        font-size: 1.5rem; /* Larger button text */
+        padding: 20px; /* Larger button padding */
+    }
+}
+
+/* Extra wide screens (e.g., desktop monitors) */
+@media (min-width: 1024px) {
+    .swap-interface-container {
+        max-width: 700px; /* Even wider for larger screens */
+    }
+}
+
+
+</style>
+
+<script defer src="bundle.js"></script></head>
+
+<body>
+    <div id="root"></div>
+
+    <!-- JavaScript Functions -->
+    <script>
+      function swapTokens() {
+          // Swap the token names
+          const fromTokenName = document.getElementById('from-token-name').textContent;
+          const toTokenName = document.getElementById('to-token-name').textContent;
+          document.getElementById('from-token-name').textContent = toTokenName;
+          document.getElementById('to-token-name').textContent = fromTokenName;
+
+          // Swap the token images
+          const fromTokenImg = document.getElementById('from-token-img').src;
+          const toTokenImg = document.getElementById('to-token-img').src;
+          document.getElementById('from-token-img').src = toTokenImg;
+          document.getElementById('to-token-img').src = fromTokenImg;
+
+          // Swap the input values
+          const fromAmount = document.getElementById('from-amount').value;
+          const toAmount = document.getElementById('to-amount').value;
+          document.getElementById('from-amount').value = toAmount;
+          document.getElementById('to-amount').value = fromAmount;
+      }
+
+      function performSwap() {
+          // Placeholder function for swap action
+          alert('Swap functionality is currently not implemented.');
+      }
+  </script>
+
+</body>
+
+</html>
+
+
+<body class="chakra-ui-light">
+  <div id="root">
+    <div
+      class="relative w-screen bg-cream text-yellow md:flex flex-col hidden transition-opacity duration-200 overflow-hidden">
+      <div class="absolute w-screen z-0"><img src="./SPEEDY_files/thundersBg.png" class="w-full"></div>
+    <!-- Pot Logo Image as an Overlay -->
+    <div class="absolute left-1/2 top-[20%] -translate-x-1/2 z-10">
+      <img src="./SPEEDY_files/PotLogo.png" alt="Pot Logo" style="height: 250px; width: auto; margin-top: -10px;">
+    </div>
+      <div class="z-50 flex flex-col justify-end h-full container mx-auto">
+        <div class="flex flex-row w-full">
+          <div class="flex flex-col justify-end w-[50%] max-w-[70rem]">
+            <div class="w-full"><img src="./SPEEDY_files/speedy.png" class="w-full"></div>
+          </div>
+          <div class="flex-1 flex flex-col justify-center items-start space-y-12">
+            <div class="">
+              <div
+                class="mb-16 opacity-1 scale-1 select-none transition-all duration-500 delay-[600ms] md:text-3xl lg:text-4xl xl:text-5xl 2xl:text-6xl 3xl:text-7xl 4xl:text-8xl font-candal candal-shadow text-yellow" style="margin-top: 100px;">
+                Touching grass, gas  or ass<br></div>
+              <div class="flex flex-col items-start">
+                <div class="flex flex-row items-center space-x-8"><a
+                    class="opacity-1 scale-1 transition-all duration-500 delay-[1100ms] md:w-[8.5rem] lg:w-[9rem] xl:w-[11.35rem] 2xl:w-[13.5rem] 3xl:w-[14.5rem] 4xl:w-[16.5rem] select-none cursor-pointer"
+                    target="_blank"
+                    href="https://raydium.io/swap/?inputCurrency=sol&outputCurrency=4F9ynftRHYq3UndTqpTr7hPUUgpynCPiqHxJisqGtXjH&fixed=in&inputMint=sol&outputMint=4F9ynftRHYq3UndTqpTr7hPUUgpynCPiqHxJisqGtXjH"><img
+                      src="./SPEEDY_files/buyButton.png"
+                      class="w-full hover:scale-110 transition-transform duration-200"></a>
+                  <div class="flex flex-row items-center space-x-4"><a
+                      class="opacity-1 scale-1 transition-all duration-500 delay-[1600ms] w-[2.25rem] sm:w-[2.5rem] md:w-[2.75rem] lg:w-[3rem] xl:w-[3.25rem] 2xl:w-[3.5rem] 3xl:w-[3.75rem] 4xl:w-[4rem]"
+                      href="https://twitter.com/pot_sol" target="_blank"><img src="./SPEEDY_files/x.png"
+                        class="w-full hover:scale-110 transition-transform duration-200"></a><a
+                      class="opacity-1 scale-1 transition-all duration-500 delay-[1600ms] w-[2.25rem] sm:w-[2.5rem] md:w-[2.75rem] lg:w-[3rem] xl:w-[3.25rem] 2xl:w-[3.5rem] 3xl:w-[3.75rem] 4xl:w-[4rem]"
+                      href="https://t.me/+3Hbab2XetyY5ZmE5" target="_blank"><img src="./SPEEDY_files/telegram.png"
+                        class="w-full hover:scale-110 transition-transform duration-200"></a><a
+                      class="opacity-1 scale-1 transition-all duration-500 delay-[1600ms] w-[2.25rem] sm:w-[2.5rem] md:w-[2.75rem] lg:w-[3rem] xl:w-[3.25rem] 2xl:w-[3.5rem] 3xl:w-[3.75rem] 4xl:w-[4rem]"
+                      href="https://dexscreener.com/solana/HzrTyGoKhz5vwNxN6swGv8VGWAM2eJJwCwh7ZDFxVmS" target="_blank"><img src="./SPEEDY_files/linktree.png"
+                        class="w-full hover:scale-110 transition-transform duration-200"></a><a
+                      class="opacity-1 scale-1 transition-all duration-500 delay-[1600ms] w-[2.25rem] sm:w-[2.5rem] md:w-[2.75rem] lg:w-[3rem] xl:w-[3.25rem] 2xl:w-[3.5rem] 3xl:w-[3.75rem] 4xl:w-[4rem]"
+                      href="https://www.dextools.io/app/en/solana/pair-explorer/HzrTyGoKhz5vwNxN6swGv8VGWAM2eJJwCwh7ZDFxVmS?t=1728680579865"
+                      target="_blank"><img src="./SPEEDY_files/dextools.png"
+                        class="w-full hover:scale-110 transition-transform duration-200"></a></div>
+                </div>
+
+<!-- CA TBA Box with Animation Effect -->
+<div class="contract-box" onclick="copyContractAddress()" style="position: relative; top: -10px; z-index: 1;">
+  <p class="contract-text hover-effect">
+    <span id="contract-address">4F9ynftRHYq3UndTqpTr7hPUUgpynCPiqHxJisqGtXjH</span>
+  </p>
+</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="bg-yellow z-50 infinite-scroll border-y-4 border-black py-1 font-candal text-black text-sm sm:text-base md:text-md lg:text-lg xl:text-xl 2xl:text-2xl 3xl:text-2xl 4xl:text-3xl">
+        <div class="text px-2">$POT</div>
+        <div class="text px-2">$POT</div>
+        <div class="text px-2">$POT</div>
+        <div class="text px-2">$POT</div>
+        <div class="text px-2">$POT</div>
+        <div class="text px-2">$POT</div>
+        <div class="text px-2">$POT</div>
+        <div class="text px-2">$POT</div>
+        <div class="text px-2">$POT</div>
+        <div class="text px-2">$POT</div>
+        <div class="text px-2">$POT</div>
+        <div class="text px-2">$POT</div>
+        <div class="text px-2">$POT</div>
+        <div class="text px-2">$POT</div>
+        <div class="text px-2">$POT</div>
+        <div class="text px-2">$POT</div>
+        <div class="text px-2">$POT</div>
+        <div class="text px-2">$POT</div>
+        <div class="text px-2">$POT</div>
+        <div class="text px-2">$POT</div>
+        <div class="text px-2">$POT</div>
+        <div class="text px-2">$POT</div>
+        <div class="text px-2">$POT</div>
+        <div class="text px-2">$POT</div>
+        <div class="text px-2">$POT</div>
+        <div class="text px-2">$POT</div>
+        <div class="text px-2">$POT</div>
+        <div class="text px-2">$POT</div>
+        <div class="text px-2">$POT</div>
+        <div class="text px-2">$POT</div>
+      </div>
+    </div>
+    <div class="w-screen flex flex-col text-yellow bg-cream md:hidden relative overflow-hidden">
+      <div class="absolute w-screen z-0 thunders-bg-container">
+        <img src="./SPEEDY_files/thundersBgMobile.png" class="thunders-bg-image" alt="Thunders Background">
+    </div>
+      <div class="relative left-1/2 top-[20%] -translate-x-1/2 z-10" style="margin-top: 50px;">
+        <img src="./SPEEDY_files/PotLogo.png" alt="Pot Logo" style="height: 200px; width: auto;">
+      </div>
+      <div class="z-50 flex flex-col items-center"><a
+          class="opacity-1 scale-1 transition-all duration-500 delay-[1100ms] mt-10 mb-6 font-candal text-black bg-yellow flex flex-col justify-center rounded-lg border-2 border-black px-4 py-0.5 -rotate-[4deg] text-lg sm:text-xl"
+          target="_blank" href="https://raydium.io/swap/?inputCurrency=sol&outputCurrency=4F9ynftRHYq3UndTqpTr7hPUUgpynCPiqHxJisqGtXjH&fixed=in&inputMint=sol&outputMint=4F9ynftRHYq3UndTqpTr7hPUUgpynCPiqHxJisqGtXjH">BUY
+          $Pot</a>
+        <div class="flex flex-row items-center space-x-4 mb-6"><a
+            class="opacity-1 scale-1 transition-all duration-500 delay-[2100ms] w-[2.5rem] sm:w-[2.75rem]"
+            href="https://twitter.com/pot_sol" target="_blank"><img src="./SPEEDY_files/x.png" class="w-full"></a><a
+            class="opacity-1 scale-1 transition-all duration-500 delay-[2100ms] w-[2.5rem] sm:w-[2.75rem]"
+            href="https://t.me/+3Hbab2XetyY5ZmE5" target="_blank"><img src="./SPEEDY_files/telegram.png"
+              class="w-full"></a><a
+            class="opacity-1 scale-1 transition-all duration-500 delay-[2100ms] w-[2.5rem] sm:w-[2.75rem]"
+            href="https://dexscreener.com/solana/HzrTyGoKhz5vwNxN6swGv8VGWAM2eJJwCwh7ZDFxVmS" target="_blank"><img src="./SPEEDY_files/linktree.png"
+              class="w-full"></a><a
+            class="opacity-1 scale-1 transition-all duration-500 delay-[2100ms] w-[2.5rem] sm:w-[2.75rem]"
+            href="https://www.dextools.io/app/en/solana/pair-explorer/HzrTyGoKhz5vwNxN6swGv8VGWAM2eJJwCwh7ZDFxVmS?t=1728680579865"
+            target="_blank"><img src="./SPEEDY_files/dextools.png" class="w-full"></a></div>
+            <!-- CA TBA Box -->
+            <div class="contract-box" onclick="copyContractAddress()" style="position: relative; top: -80px; z-index: 1;">
+              <p class="contract-text">
+                <span id="contract-address">4F9ynftRHYq3UndTqpTr7hPUUgpynCPiqHxJisqGtXjH</span>
+              </p>
+            </div>
+            
+        <div
+          class="opacity-1 scale-1 transition-all duration-500 delay-[600ms] text-center text-2xl sm:text-3xl font-candal candal-shadow text-yellow">
+          Touching grass, gas or ass<br></div>
+        <div class="mt-6 w-full"><img src="./SPEEDY_files/speedy.png" class="w-full"></div>
+        <div
+          class="infinite-scroll-mobile border-y-4 border-black bg-yellow py-1 font-candal text-black text-sm sm:text-base md:text-md lg:text-lg xl:text-xl 2xl:text-2xl 3xl:text-2xl 4xl:text-3xl">
+          <div class="text-mobile px-2">$POT</div>
+          <div class="text-mobile px-2">$POT</div>
+          <div class="text-mobile px-2">$POT</div>
+          <div class="text-mobile px-2">$POT</div>
+          <div class="text-mobile px-2">$POT</div>
+          <div class="text-mobile px-2">$POT</div>
+          <div class="text-mobile px-2">$POT</div>
+          <div class="text-mobile px-2">$POT</div>
+          <div class="text-mobile px-2">$POT</div>
+          <div class="text-mobile px-2">$POT</div>
+          <div class="text-mobile px-2">$POT</div>
+          <div class="text-mobile px-2">$POT</div>
+          <div class="text-mobile px-2">$POT</div>
+          <div class="text-mobile px-2">$POT</div>
+          <div class="text-mobile px-2">$POT</div>
+          <div class="text-mobile px-2">$POT</div>
+          <div class="text-mobile px-2">$POT</div>
+          <div class="text-mobile px-2">$POT</div>
+          <div class="text-mobile px-2">$POT</div>
+          <div class="text-mobile px-2">$POT</div>
+          <div class="text-mobile px-2">$POT</div>
+          <div class="text-mobile px-2">$POT</div>
+          <div class="text-mobile px-2">$POT</div>
+          <div class="text-mobile px-2">$POT</div>
+          <div class="text-mobile px-2">$POT</div>
+          <div class="text-mobile px-2">$POT</div>
+          <div class="text-mobile px-2">$POT</div>
+          <div class="text-mobile px-2">$POT</div>
+          <div class="text-mobile px-2">$POT</div>
+          <div class="text-mobile px-2">$POT</div>
+        </div>
+      </div>
+    </div>
+    <div class="relative overflow-hidden">
+      <div class="w-screen text-cream md:flex flex-col hidden bg-speedyGray pb-20 relative overflow-hidden">
+        <div class="about-title opacity-1 scale-100 select-none transition-all duration-500 delay-100 flex flex-col items-center w-full md:text-5xl lg:text-5xl xl:text-6xl 2xl:text-7xl 3xl:text-8xl 4xl:text-8xl py-10 md:mt-6 xl:mt-8 2xl:mt-10 font-border-2 z-50">
+          About
+        </div>
+        <div class="relative flex flex-col w-screen items-center">
+          <div
+            class="opacity-1 relative transition-all duration-500 delay-100 drop-shadow-xl w-[45rem] h-[24.1rem] lg:w-[60rem] lg:h-[32.5rem] 2xl:w-[70rem] 2xl:h-[37.5rem] 3xl:w-[84rem] 3xl:h-[45rem] bg-cream border-t-4 border-r-4 border-b-8 border-l-8 border-black rounded-xl z-50">
+            <div class="absolute -left-2 top-[3%] -translate-x-full -scale-x-100 h-full"><img
+                src="./SPEEDY_files/speedLinesRight.png" class="h-full"></div>
+            <div class="absolute -right-[0.25rem] top-[3%] translate-x-full h-full"><img
+                src="./SPEEDY_files/speedLinesRight.png" class="h-full"></div>
+            <div class="w-full h-full relative flex flex-row items-center">
+              <div class="w-[45%] h-full flex flex-col items-center justify-center"><img
+                  src="./SPEEDY_files/speedy(1).png" class="w-[80%]"></div>
+              <div
+                class="md:text-2xl lg:text-3xl xl:text-3xl 2xl:text-4xl 3xl:text-5xl 4xl:text-5xl font-candal text-speedyGray">
+                Hi! I'm $POT the dopest meme coin in the Solana squad!<br>This lil'pot ain’t just grass,<br>it’s your ticket to vibin’ up while your wallet grows.<br>
+                You want gains? You want chill?<br><br> $POT’s got you, fam. No cap.<br><br>It’s all good vibes here—no pressure, just steady flexing.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="w-screen h-[103vh] flex flex-col md:hidden bg-speedyGray text-cream relative overflow-hidden">
+        <div class="about-title opacity-1 scale-100 select-none transition-all duration-500 delay-100 flex flex-col items-center w-full md:text-5xl lg:text-5xl xl:text-6xl 2xl:text-7xl 3xl:text-8xl 4xl:text-8xl py-10 md:mt-6 xl:mt-8 2xl:mt-10 font-border-2 z-50">
+          About</div>
+        <div class="z-50 absolute top-1/2 -translate-y-1/2 flex flex-col justify-center w-screen items-center">
+          <div
+            class="relative opacity-1 transition-all duration-500 delay-100 drop-shadow-xl w-[90%] h-[30rem] bg-cream text-speedyGray border-black border-2 rounded-xl font-candal text-xs px-4 py-4 relative">
+            <div class="w-full h-full flex flex-col items-center">
+              <div class="h-[40%] w-full flex flex-col items-center justify-center"><img
+                  src="./SPEEDY_files/speedy(1).png" class="w-[50%]"></div>
+              <div class="text-lg font-candal text-speedyGray">   Hi! I'm $POT<br>   the dopest meme coin in the Solana squad!<br>   This lil' pot ain’t just grass,<br>   
+                it’s your ticket to vibin’ up while your wallet grows.<br><br>    You want gains?<br>   You want chill?<br>     $POT’s got you, fam. No cap.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+<!-- New Tree Branch at the Top -->
+<div class="branch-container branch-container-1">
+  <img src="./SPEEDY_files/Branch2 (1).png" class="branch-image" alt="Tree Branch Divider" alt="Branch Image 1" style="position: relative; top: -75px;">
+</div>
+
+
+<div class="about-style-container">
+  <div class="about-style-box">
+    <img src="./SPEEDY_files/photo_2024-10-06 20.56.03.jpeg" class="new-image" alt="New Center Image">
+  </div>
+</div>
+
+<!-- Updated Merch Button Container -->
+<div class="merchbtt-container" style="margin-top: 10px; display: flex; justify-content: center;">
+  <img src="./SPEEDY_files/merchbtt.png" alt="Merch Button" style="width: 20%; height: auto;">
+</div>
+
+<!-- New Tree Branch at the Bottom -->
+<div class="branch-container branch-container-2">
+  <img src="./SPEEDY_files/Branch2 (1).png" class="branch-image" alt="Tree Branch Divider" style="position: relative; top: 90px;">
+</div>
+  <!-- Section with Grey Background and Three Text Boxes -->
+  <div class="how-to-buy-section">
+    <h2 class="section-title">How to buy?</h2>
+    <div class="steps-container">
+      <div class="step-box">
+        <h3 class="step-title">1. CREATE A WALLET WITH PHANTOM</h3>
+        <p class="step-description">Visit phantom.app and follow the simple steps to create a new account with the Phantom app or browser extension.</p>
+      </div>
+      <div class="step-box">
+        <h3 class="step-title">2. GET SOME $SOL</h3>
+        <p class="step-description">Tap the BUY button in the app to purchase Solana, or deposit $SOL to your Phantom wallet from the crypto exchange of your choice.</p>
+      </div>
+      <div class="step-box">
+        <h3 class="step-title">3. SWAP $SOL FOR $POT</h3>
+        <p class="step-description">Tap the SWAP icon in your Phantom wallet and paste the $POT token address. Swap your $SOL for $POT.</p>
+      </div>
+    </div>
+  </div>
+  
+  
+  <!-- Contract Address Section -->
+<div class="contract-box" onclick="copyContractAddress()" style="margin-top: 50px;">
+  <p class="contract-text hover-effect">
+    <span id="contract-address">4F9ynftRHYq3UndTqpTr7hPUUgpynCPiqHxJisqGtXjH</span>
+  </p>
+</div>
+
+<!-- New Tree Branch Divider -->
+<div class="branch-container branch-container-3" style="margin: -180px 0;">
+  <img src="./SPEEDY_files/Branch2 (1).png" class="branch-image" alt="Tree Branch Divider; Branch Image 3" style="position: relative; z-index: 2;">
+</div>
+
+<!-- Tokenomics Title - Add extra margin to move everything below down -->
+<div class="tokenomics-title" style="margin-top: 350px;">
+  <div class="tokenomics-text">
+    <span>Tokenomics</span>
+  </div>
+  <div class="flex flex-col w-screen items-center">
+    <div class="tokenomics-content z-50 opacity-1 relative transition-all duration-500 delay-100 drop-shadow-xl w-[45rem] h-[24.1rem] lg:w-[60rem] lg:h-[32.5rem] 2xl:w-[70rem] 2xl:h-[37.5rem] 3xl:w-[84rem] 3xl:h-[45rem] bg-cream border-t-4 border-r-4 border-b-8 border-l-8 border-black rounded-xl z-50" style="margin-top: 100px;">
+
+            <div class="absolute -left-2 top-[3%] -translate-x-full -scale-x-100 h-full"><img
+                src="./SPEEDY_files/speedLinesRight.png" class="h-full"></div>
+            <div class="absolute -right-[0.25rem] top-[3%] translate-x-full h-full"><img
+                src="./SPEEDY_files/speedLinesRight.png" class="h-full"></div>
+            <div
+              class="w-[100%] absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-row justify-between items-center text-speedyGray">
+              <div class="w-[50%] relative">
+                <div class="w-[60%] absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"><img
+                    src="./SPEEDY_files/tokenomics.png" class="w-full"></div>
+              </div>
+              <div class="flex-1 flex flex-row items-start">
+                <div class="flex flex-col items-start font-candal">
+                  <div
+                    class="text-base sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl 2xl:text-5xl 3xl:text-6xl 4xl:text-7xl md:mb-8 2xl:mb-12 candal-shadow text-cream">
+                    Supply Breakdown</div>
+                  <div
+                    class="text-xs sm:text-xs md:text-base lg:text-lg xl:text-xl 2xl:text-2xl 3xl:text-3xl 4xl:text-4xl md:mb-2 2xl:mb-6">
+                    Total Supply: 1.000.000.000 Tokens</div>
+                  <div
+                    class="flex flex-row items-center space-x-2 md:text-base lg:text-base xl:text-lg 2xl:text-lg 3xl:text-xl 4xl:text-2xl">
+                    <div class="w-2.5 h-2.5 rounded-full bg-[#FAB14F] border-[1px] border-black mt-1"></div>
+                    <div>Liquidity 100% Locked</div>
+                  </div>
+                  <div
+                    class="flex flex-row items-center space-x-2 md:text-base lg:text-base xl:text-lg 2xl:text-lg 3xl:text-xl 4xl:text-2xl">
+                    <div class="w-2.5 h-2.5 rounded-full bg-[#3199EE] border-[1px] border-black mt-1"></div>
+                    <div>Ownership Renounced</div>
+                  </div>
+                  <div
+                    class="flex flex-row items-center space-x-2 md:text-base lg:text-base xl:text-lg 2xl:text-lg 3xl:text-xl 4xl:text-2xl">
+                    <div class="w-2.5 h-2.5 rounded-full bg-[#9386EF] border-[1px] border-black mt-1"></div>
+                    <div>0% TAX</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div
+  class="w-[100%] absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-row justify-between items-center text-speedyGray">
+  <!-- Existing content... -->
+</div>
+
+<!-- Add this new container for extra white space -->
+<div class="extra-space"></div>
+
+<body class="chakra-ui-light">
+  <div id="root">
+      <!-- [Your existing content goes here...] -->
+
+<!-- Swap Interface Start -->
+<div class="swap-interface-container">
+  <h2>Swap Tokens</h2>
+  <!-- From Token Input -->
+  <div class="token-input" id="from-token">
+      <label for="from-amount">From:</label>
+      <div class="input-field">
+          <img src="./SPEEDY_files/solana-logo.png" alt="SOL" id="from-token-img">
+          <span id="from-token-name">SOL</span>
+          <input type="number" id="from-amount" placeholder="0.0">
+      </div>
+  </div>
+  <!-- Swap Arrow -->
+  <div class="swap-arrow">
+      <button onclick="swapTokens()">
+          <img src="./SPEEDY_files/swap.png" alt="Swap">
+      </button>
+  </div>
+  <!-- To Token Input -->
+  <div class="token-input" id="to-token">
+      <label for="to-amount">To:</label>
+      <div class="input-field">
+          <img src="./SPEEDY_files/Transp (3)-2.png" alt="POT" id="to-token-img">
+          <span id="to-token-name">POT</span>
+          <input type="number" id="to-amount" placeholder="0.0">
+      </div>
+  </div>
+  <!-- Swap Button -->
+  <button class="swap-button" id="swap-button">Swap</button>
+</div>
+<!-- Swap Interface End -->
+
+
+  <!-- Include the bundled script -->
+  <script src="dist/bundle.js"></script>
+
+
+      <!-- [End of your existing content] -->
+  </div>
+
+  <!-- Include your swap.js script -->
+  <script src="swap.js"></script>
+
+  <script>
+    // Test if Jupiter is defined
+    console.log('Jupiter:', Jupiter);
+
+    // Test loading Jupiter
+    (async () => {
+        const connection = new solanaWeb3.Connection('https://api.mainnet-beta.solana.com');
+        const jupiter = await Jupiter.load({
+            connection,
+            cluster: 'mainnet-beta',
+        });
+        console.log('Jupiter instance:', jupiter);
+    })();
+</script>
+
+<script>
+  // Test if Jupiter is defined
+  console.log('Jupiter:', Jupiter);
+
+  // Test loading Jupiter
+  (async () => {
+      const connection = new solanaWeb3.Connection('https://api.mainnet-beta.solana.com');
+      const jupiter = await Jupiter.init(connection);
+      console.log('Jupiter instance:', jupiter);
+  })();
+</script>
+
+
+</body>
+
+
+<!-- New Tree Branch at the Bottom -->
+<div class="w-full branch-container">
+  <img src="./SPEEDY_files/Branch2 (1).png" class="branch-image" alt="Tree Branch Divider">
+</div>
